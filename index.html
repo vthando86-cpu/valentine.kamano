@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Kamano 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff4d6d, #ff9aa2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      width: 320px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    p {
+      color: #444;
+      font-size: 16px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #ddd;
+      position: absolute;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 22px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>Kamano 💖</h1>
+    <p>
+      I’ve been meaning to ask you something special…<br><br>
+      Will you be my Valentine? 🌹
+    </p>
+
+    <button class="yes" onclick="yesClicked()">Yes 💕</button>
+    <button class="no" id="noBtn">No 🙈</button>
+  </div>
+
+  <script>
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          text-align:center;
+          color:white;
+          font-family: Arial, sans-serif;
+          background: linear-gradient(135deg, #ff4d6d, #ff9aa2);
+          padding:20px;
+        ">
+          <div>
+            <h1 style="font-size:45px;">SHE SAID YES 🎉❤️</h1>
+            <p style="font-size:22px;">
+              I may be broke 💸😂<br>
+              but that Zaria is coming your way 😌✨<br><br>
+              Happy Valentine’s Day, Kamano 🌹
+            </p>
+          </div>
+        </div>
+      `;
+    }
+
+    const noBtn = document.getElementById("noBtn");
+    noBtn.addEventListener("mouseover", () => {
+      noBtn.style.left = Math.random() * (window.innerWidth - 100) + "px";
+      noBtn.style.top = Math.random() * (window.innerHeight - 50) + "px";
+    });
+
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 400);
+  </script>
+
+</body>
+</html>
+
